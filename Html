@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indu's Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-animation"></div>
+
+  <header>
+    <h1>Hi, I'm <span>Indu</span></h1>
+    <p>Welcome to my portfolio</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I am Indu, a passionate learner who loves creating websites and working on
+      new projects. I enjoy building interactive and visually appealing designs.
+    </p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>Responsive Web Design</li>
+      <li>UI/UX Basics</li>
+      <li>Creative Problem Solving</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Project 1</h3>
+      <p>A sample project showcasing my skills in front-end development.</p>
+    </div>
+    <div class="project-card">
+      <h3>Project 2</h3>
+      <p>Another creative web project with animations and interactivity.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email me at
+/* General Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: linear-gradient(270deg, #6a11cb, #2575fc);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  text-align: center;
+}
+
+header {
+  padding: 50px 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+header span {
+  color: yellow;
+}
+
+section {
+  padding: 50px 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffdd57;
+}
+
+/* Skills */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+/* Project Cards */
+.project-card {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Footer */
+footer {
+  background: rgba(0,0,0,0.6);
+  padding: 20px;
+}
+
+/* Background Animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+// Simple animation on scroll
+window.addEventListener("scroll", () => {
+  const elements = document.querySelectorAll("section");
+  elements.forEach(el => {
+    const position = el.getBoundingClientRect().top;
+    if (position < window.innerHeight - 100) {
+      el.classList.add("fade-in");
+    }
+  });
+});
+
+// Add fade-in effect
+const style = document.createElement("style");
+style.innerHTML = `
+  .fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 1s ease-in-out;
+  }
+  section {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+`;
+document.head.appendChild(style);
